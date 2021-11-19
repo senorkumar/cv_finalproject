@@ -10,12 +10,10 @@ from PIL import Image
 device = 'cuda' if torch.cuda.is_available() else 'cpu'
 print(f'Using {device} device')
 
-model = ResNet50(batch_size=1).to(device)
+model = ResNet50().to(device)
 
 input_image = Image.open('airplane1.png')
 preprocess = transforms.Compose([
-    transforms.Resize(256),
-    transforms.CenterCrop(224),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
 ])
@@ -24,4 +22,4 @@ input_batch = input_tensor.unsqueeze(0)
 print(input_batch.shape)
 
 output = model(input_batch)
-print(output.shape)
+print(output)
