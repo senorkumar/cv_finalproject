@@ -17,12 +17,14 @@ class ResNet50(nn.Module):
         self.resnet = torch.hub.load('pytorch/vision:v0.10.0', 'resnet50', pretrained=False)
         #we are classifying on cifar10 which has 10 output classes not 1000, so fix this
         self.resnet.fc = nn.Linear(in_features=2048, out_features=10)
+
+        #to train we need to softmax to compare to 1 hot distribution
         self.softmax = nn.Softmax(dim=1)
 
     
+    #run input through each layer of network in order
     def forward(self, x):
         x = self.upsample(x)
-        print(x.shape)
         x = self.resnet(x)
         x = self.softmax(x)
         return x

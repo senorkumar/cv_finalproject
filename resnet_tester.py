@@ -1,3 +1,4 @@
+#this file verifies that the resnet50 model is being constructed as intended
 from resnet import ResNet50
 import os
 import torch
@@ -19,7 +20,7 @@ preprocess = transforms.Compose([
 ])
 input_tensor = preprocess(input_image)
 input_batch = input_tensor.unsqueeze(0)
-print(input_batch.shape)
-
 output = model(input_batch)
-print(output)
+
+
+summary(model, (3,32,32))
