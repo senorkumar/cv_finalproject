@@ -1,0 +1,3 @@
+[submodule "CoTNet"]
+	path = CoTNet
+	url = git@github.com:JDAI-CV/CoTNet.git
