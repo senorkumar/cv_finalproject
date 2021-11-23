@@ -1,4 +1,4 @@
-from my_resnet import ResNet50
+from my_resnet_model import ResNet50
 import os
 import torch
 from torch import nn
