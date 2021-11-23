@@ -1,4 +1,4 @@
-from cotnet import CoTNet50
+from my_cotnet import * 
 import os
 import torch
 from torch import nn
