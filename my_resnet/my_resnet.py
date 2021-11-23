@@ -18,7 +18,7 @@ class ResNet50(nn.Module):
         #we are classifying on cifar10 which has 10 output classes not 1000, so fix this
         self.resnet.fc = nn.Linear(in_features=2048, out_features=10)
 
-        #to train we need to softmax to compare to 1 hot distribution
+        #convert activations into confidence
         self.softmax = nn.Softmax(dim=1)
 
     
