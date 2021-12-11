@@ -13,7 +13,7 @@ import argparse
 
 from models import *
 from utils import progress_bar
-from my_cotnet import my_cotnet
+from my_resnet.my_resnet_model import ResNet50
 
 
 parser = argparse.ArgumentParser(description='PyTorch CIFAR10 Training')
@@ -54,7 +54,7 @@ classes = ('plane', 'car', 'bird', 'cat', 'deer',
 # Model
 print('==> Building model..')
 
-net = my_cotnet()
+net = ResNet50
 net = net.to(device)
 if device == 'cuda':
     net = torch.nn.DataParallel(net)
